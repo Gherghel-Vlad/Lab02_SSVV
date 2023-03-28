@@ -35,18 +35,17 @@ public class ServiceTest {
 
         Student newStudent = new Student("id1", "newName", 930, "new@scs.ubbcluj.ro");
         service.addStudent(newStudent);
-        throw new RuntimeException();
-//        int nrofStudentsAfter = 0;
-//        for (Student stud : service.getAllStudenti()) nrofStudentsAfter++;
-//
-//        assertEquals(nrofStudentsAfter, nrofStudentsBefore + 1);
-//
-//        service.deleteStudent("id1");
-//
-//        nrofStudentsAfter = 0;
-//        for (Student stud : service.getAllStudenti()) nrofStudentsAfter++;
-//
-//        assertEquals(nrofStudentsAfter, nrofStudentsBefore);
+        int nrofStudentsAfter = 0;
+        for (Student stud : service.getAllStudenti()) nrofStudentsAfter++;
+
+        assertEquals(nrofStudentsAfter, nrofStudentsBefore + 1);
+
+        service.deleteStudent("id1");
+
+        nrofStudentsAfter = 0;
+        for (Student stud : service.getAllStudenti()) nrofStudentsAfter++;
+
+        assertEquals(nrofStudentsAfter, nrofStudentsBefore);
     }
 
     @Test
