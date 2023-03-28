@@ -25,10 +25,6 @@ public class ServiceTest {
     NotaValidator notaValidator = new NotaValidator(studentXMLRepository, temaXMLRepository);
     NotaXMLRepo notaXMLRepository = new NotaXMLRepo(filenameNota);
 
-    @Test
-    public void shouldAnswerWithTrue() {
-        assertTrue(true);
-    }
 
     @Test
     public void test_NoTC_1() {
@@ -39,18 +35,18 @@ public class ServiceTest {
 
         Student newStudent = new Student("id1", "newName", 930, "new@scs.ubbcluj.ro");
         service.addStudent(newStudent);
-
-        int nrofStudentsAfter = 0;
-        for (Student stud : service.getAllStudenti()) nrofStudentsAfter++;
-
-        assertEquals(nrofStudentsAfter, nrofStudentsBefore + 1);
-
-        service.deleteStudent("id1");
-
-        nrofStudentsAfter = 0;
-        for (Student stud : service.getAllStudenti()) nrofStudentsAfter++;
-
-        assertEquals(nrofStudentsAfter, nrofStudentsBefore);
+        throw new RuntimeException();
+//        int nrofStudentsAfter = 0;
+//        for (Student stud : service.getAllStudenti()) nrofStudentsAfter++;
+//
+//        assertEquals(nrofStudentsAfter, nrofStudentsBefore + 1);
+//
+//        service.deleteStudent("id1");
+//
+//        nrofStudentsAfter = 0;
+//        for (Student stud : service.getAllStudenti()) nrofStudentsAfter++;
+//
+//        assertEquals(nrofStudentsAfter, nrofStudentsBefore);
     }
 
     @Test
