@@ -7,6 +7,7 @@ public class Student implements HasID<String> {
     private String nume;
     private int grupa;
     private String email;
+    private String teacher;
 
     /**
      * Class Constructor
