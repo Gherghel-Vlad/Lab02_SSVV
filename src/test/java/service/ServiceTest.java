@@ -1,6 +1,7 @@
 package service;
 
 import domain.Student;
+import domain.Tema;
 import org.junit.Test;
 import repository.NotaXMLRepo;
 import repository.StudentXMLRepo;
@@ -10,8 +11,7 @@ import validation.StudentValidator;
 import validation.TemaValidator;
 import validation.ValidationException;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class ServiceTest {
     StudentValidator studentValidator = new StudentValidator();
@@ -375,5 +375,42 @@ public class ServiceTest {
         for (Student stud : service.getAllStudenti()) nrofStudentsAfter++;
 
         assertEquals(nrofStudentsAfter, nrofStudentsBefore);
+    }
+
+    @Test
+    public void test_AddAssignment_1(){
+        Service service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
+
+        int nrOfTemaBefore = 0;
+        for (Tema stud : service.getAllTeme()) nrOfTemaBefore++;
+
+        Tema tema = new Tema("1233", "desc", 3, 1);
+        service.addTema(tema);
+
+        int nrOfTemeAfter = 0;
+        for (Tema stud : service.getAllTeme()) nrOfTemeAfter++;
+
+
+        assertEquals(nrOfTemeAfter, nrOfTemaBefore + 1);
+
+        service.deleteTema("1233");
+
+        nrOfTemeAfter = 0;
+        for (Tema stud : service.getAllTeme()) nrOfTemeAfter++;
+
+        assertEquals(nrOfTemeAfter, nrOfTemaBefore);
+    }
+    @Test
+    public void test_AddAssignment_2(){
+        Service service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
+
+        Tema tema = new Tema("", "desc", 3, 1);
+        try {
+            service.addTema(tema);
+            fail();
+        }
+        catch (Exception e){
+            assertTrue(true);
+        }
     }
 }
