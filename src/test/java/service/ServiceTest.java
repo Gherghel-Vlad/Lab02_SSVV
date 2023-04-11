@@ -413,4 +413,113 @@ public class ServiceTest {
             assertTrue(true);
         }
     }
+
+    @Test
+    public void test_AddAssignment_TC_1(){
+        Service service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
+
+        Tema tema = new Tema("", "descr", 13, 13);
+        try {
+            service.addTema(tema);
+            fail();
+        }
+        catch (ValidationException e){
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void test_AddAssignment_TC_2(){
+        Service service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
+
+        Tema tema = new Tema(null, "descr", 13, 13);
+        try {
+            service.addTema(tema);
+            fail();
+        }
+        catch (ValidationException e){
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void test_AddAssignment_TC_3(){
+        Service service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
+
+        Tema tema = new Tema("100", "", 13, 13);
+        try {
+            service.addTema(tema);
+            fail();
+        }
+        catch (ValidationException e){
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void test_AddAssignment_TC_4(){
+        Service service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
+
+        Tema tema = new Tema("100", "descr", 0, 13);
+        try {
+            service.addTema(tema);
+            fail();
+        }
+        catch (ValidationException e){
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void test_AddAssignment_TC_5(){
+        Service service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
+
+        Tema tema = new Tema("100", "descr", 15, 13);
+        try {
+            service.addTema(tema);
+            fail();
+        }
+        catch (ValidationException e){
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void test_AddAssignment_TC_6(){
+        Service service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
+
+        Tema tema = new Tema("100", "descr", 13, 0);
+        try {
+            service.addTema(tema);
+            fail();
+        }
+        catch (ValidationException e){
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void test_AddAssignment_TC_7(){
+        Service service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
+
+        Tema tema = new Tema("100", "descr", 13, 15);
+        try {
+            service.addTema(tema);
+            fail();
+        }
+        catch (ValidationException e){
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void test_AddAssignment_TC_8(){
+        Service service = new Service(studentXMLRepository, studentValidator, temaXMLRepository, temaValidator, notaXMLRepository, notaValidator);
+
+        Tema tema = new Tema("100", "descr", 13, 13);
+
+        service.addTema(tema);
+
+        assert(true);
+    }
 }
