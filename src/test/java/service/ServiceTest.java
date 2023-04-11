@@ -521,5 +521,7 @@ public class ServiceTest {
         service.addTema(tema);
 
         assert(true);
+
+        service.deleteTema("100");
     }
 }
